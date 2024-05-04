@@ -20,7 +20,6 @@ struct RoundedCorners: Shape {
         let width = rect.size.width
         let height = rect.size.height
 
-        // Make sure we do not exceed the size of the rectangle
         let topRight = min(min(self.topRight, height / 2), width / 2)
         let topLeft = min(min(self.topLeft, height / 2), width / 2)
         let bottomLeft = min(min(self.bottomLeft, height / 2), width / 2)

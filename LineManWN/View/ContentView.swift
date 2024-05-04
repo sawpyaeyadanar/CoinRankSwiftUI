@@ -12,10 +12,23 @@ struct ContentView: View {
     @State private var coins: [Coins] = []
     @State private var isLoading = false
     @State private var shouldLoadMore = false
-    
+    @State private var rotationAngle: Angle = .degrees(0)
     var body: some View {
         ScrollViewReader { scrollViewProxy in
            
+            Image(systemName: "arrow.clockwise.circle")
+                       .resizable()
+                       .scaledToFit()
+                       .frame(width: 100, height: 100)
+                       .rotationEffect(rotationAngle)
+                       .onAppear {
+                           
+                           Timer.scheduledTimer(withTimeInterval: 0.002, repeats: true) { _ in
+                               withAnimation {
+                                   rotationAngle += .degrees(1) // Increase rotation angle by 1 degree
+                               }
+                           }
+                       }
             
             List {
                 ForEach(coins, id: \.id) { coin in

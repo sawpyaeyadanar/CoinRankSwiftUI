@@ -45,7 +45,7 @@ class HomeViewModel: ObservableObject {
     func getSearchList(text: String)  {
         self.searchCoin = [Coins]()
         self.isSearching = true
-        isFetching = true
+        self.isFetching = true
         coinListService.getOfflineSearchList(text: text)
         //  coinListService.searchCoin(text: text)
           .sink { completion in
