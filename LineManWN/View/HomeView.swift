@@ -156,7 +156,7 @@ struct HomeView: View {
 
 struct CoinCellView: View {
     let coin: Coin
-    @State var isPresented = false
+    @State private var isPresented = false
     var body: some View {
         HStack(spacing: 0) {
             CoinImageView(coin: coin)

@@ -62,6 +62,7 @@
 		4978BE282BE55AD500A32683 /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4978BE272BE55AD500A32683 /* HttpMethod.swift */; };
 		49AFE5D82BE648090000D08F /* CoinDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AFE5D72BE648090000D08F /* CoinDetailService.swift */; };
 		49AFE5DC2BE698BF0000D08F /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AFE5DB2BE698BF0000D08F /* PreviewData.swift */; };
+		49AFE5DE2BE69D230000D08F /* LineManSimulator.mov in Resources */ = {isa = PBXBuildFile; fileRef = 49AFE5DD2BE69D230000D08F /* LineManSimulator.mov */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -120,6 +121,7 @@
 		4978BE272BE55AD500A32683 /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
 		49AFE5D72BE648090000D08F /* CoinDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailService.swift; sourceTree = "<group>"; };
 		49AFE5DB2BE698BF0000D08F /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
+		49AFE5DD2BE69D230000D08F /* LineManSimulator.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = LineManSimulator.mov; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +204,7 @@
 		4920A0EB2BE2B631003743C3 /* LineManWN */ = {
 			isa = PBXGroup;
 			children = (
+				49AFE5DD2BE69D230000D08F /* LineManSimulator.mov */,
 				4978BE242BE5599F00A32683 /* Configuration */,
 				4978BE0B2BE4F21E00A32683 /* Utilities */,
 				490F944B2BE34A0B004394B3 /* Info.plist */,
@@ -389,6 +392,7 @@
 				490F94392BE349DF004394B3 /* Roboto-LightItalic.ttf in Resources */,
 				490F94352BE349DF004394B3 /* Roboto-Light.ttf in Resources */,
 				490F94412BE349DF004394B3 /* Roboto-ThinItalic.ttf in Resources */,
+				49AFE5DE2BE69D230000D08F /* LineManSimulator.mov in Resources */,
 				490F943A2BE349DF004394B3 /* RobotoCondensed-Italic.ttf in Resources */,
 				4920A0F12BE2B632003743C3 /* Assets.xcassets in Resources */,
 				490F944A2BE349DF004394B3 /* Roboto-Italic.ttf in Resources */,
