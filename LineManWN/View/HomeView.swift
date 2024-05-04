@@ -66,8 +66,11 @@ struct HomeView: View {
             } // Vstack
            // .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
             .ignoresSafeArea()
+            .refreshable(action: {
+                viewModel.getCoinsList()
+            })
             .onAppear(perform: {
-                 viewModel.getCoinsList()
+                // viewModel.getCoinsList()
                 
         })
         }
@@ -208,7 +211,7 @@ struct CardContentView: View {
         }
         
         .popover(isPresented: $isPresented, content: {
-            CoinDetailsView(viewModel: CoinDetailsViewModel(), isPresented: $isPresented)
+            CoinDetailsView(viewModel: CoinDetailsViewModel(coin: coin), isPresented: $isPresented)
         })
         //.background(Color.listTheme.background)
         .frame(height: 82)
@@ -236,7 +239,7 @@ struct CardContentView: View {
     
     private var rightView: some View {
         VStack(alignment: .trailing) {
-            Text(coin.price.asCurrencyWith6Decimals())
+            Text(coin.price.asCurrencyWith5Decimals())
                 .foregroundColor(Color("LFont1"))
                 .font(.custom("Roboto-Bold", size: 12.0))
             HStack(alignment: .center) {

@@ -27,7 +27,7 @@ enum APIEndPoint {
         case .list:
             return "/coins"
         case let .details( uuid):
-             return "/coins/\(uuid)/"
+             return "/coin/\(uuid)/"
         case .search:
             return "/coins"
         }

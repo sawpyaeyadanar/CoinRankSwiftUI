@@ -41,7 +41,7 @@ struct RankHeaderCellView: View {
         }
         .popover(isPresented: $isPresented, content: {
             //CoinDetailsView2(isPresented: $isPresented)
-            CoinDetailsView(viewModel: CoinDetailsViewModel(), isPresented: $isPresented)
+            CoinDetailsView(viewModel: CoinDetailsViewModel(coin: coin), isPresented: $isPresented)
         })
         .frame(height: 180)
         .background(RoundedCorners(topLeft: 8.0, topRight: 8.0, bottomLeft: 8.0, bottomRight: 8.0)

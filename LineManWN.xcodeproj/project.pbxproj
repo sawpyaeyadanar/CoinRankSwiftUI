@@ -62,6 +62,7 @@
 		4978BE232BE5580D00A32683 /* APIEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4978BE222BE5580D00A32683 /* APIEndPoint.swift */; };
 		4978BE262BE559AF00A32683 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4978BE252BE559AF00A32683 /* Environment.swift */; };
 		4978BE282BE55AD500A32683 /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4978BE272BE55AD500A32683 /* HttpMethod.swift */; };
+		49AFE5D82BE648090000D08F /* CoinDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AFE5D72BE648090000D08F /* CoinDetailService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -120,6 +121,7 @@
 		4978BE222BE5580D00A32683 /* APIEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndPoint.swift; sourceTree = "<group>"; };
 		4978BE252BE559AF00A32683 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		4978BE272BE55AD500A32683 /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
+		49AFE5D72BE648090000D08F /* CoinDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -272,6 +274,7 @@
 				4968706E2BE33E5F00B25167 /* APIError.swift */,
 				4978BE102BE501A200A32683 /* CoinListService.swift */,
 				4978BE222BE5580D00A32683 /* APIEndPoint.swift */,
+				49AFE5D72BE648090000D08F /* CoinDetailService.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 				49639C5D2BE3A7A60051ADF3 /* RoundedCornersView.swift in Sources */,
 				49639C5F2BE3EE460051ADF3 /* String.swift in Sources */,
 				4978BE0F2BE5010E00A32683 /* NetworkingManager.swift in Sources */,
+				49AFE5D82BE648090000D08F /* CoinDetailService.swift in Sources */,
 				4978BE262BE559AF00A32683 /* Environment.swift in Sources */,
 				4978BE192BE509A800A32683 /* CoinImageService.swift in Sources */,
 				4978BE172BE5096E00A32683 /* CoinImageViewModel.swift in Sources */,

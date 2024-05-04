@@ -10,21 +10,32 @@ import Foundation
 class CoinDetailsViewModel: ObservableObject {
     
     @Published var coins: CoinDetails?
-    private let apiService: APIPreviewClient = APIPreviewClient()
+    private let apiService: CoinDetailService
     private var cancellable = Set<AnyCancellable>()
     var isFetching: Bool = false
     var errorMessage: String?
-    var coin: Coins {
-        Coins(uuid: coins!.uuid, symbol: coins!.symbol, name: coins!.name, color: coins?.color, iconUrl: coins!.iconURL, price: coins!.price, change: "", rank: 0)
-    }
+    var coin: Coins
+//    var coin: Coins {
+//        print("uuid \(coins?.uuid)")
+//        print("symbol \(coins?.symbol)")
+//        print("name \(coins?.name)")
+//        print("color \(coins?.color)")
+//        print("iconUrl \(coins?.iconURL)")
+//        print("price \(coins?.price)")
+//      
+//        
+//    return    Coins(uuid: coins!.uuid, symbol: coins!.symbol, name: coins!.name, color: coins?.color, iconUrl: coins!.iconURL, price: coins!.price, change: "", rank: 0)
+//    }
     
-    init() {
+    init(coin: Coins, service: CoinDetailService = CoinDetailService()) {
+        self.coin = coin
+        self.apiService = CoinDetailService()
         getCoinsDetails()
     }
 
     func getCoinsDetails()  {
       isFetching = true
-        apiService.getCoinsDetails()
+        apiService.getCoinsDetails(uuid: coin.uuid)
         .sink { completion in
           self.isFetching =  false
           switch completion {
@@ -33,7 +44,7 @@ class CoinDetailsViewModel: ObservableObject {
             
           case .failure(let error):
             print(" getCoinsDetails unable to fetch \(error)")
-            self.errorMessage = error.message
+            self.errorMessage = error.localizedDescription
           }
         } receiveValue: { [weak self] coins in
             guard let self = self else { return  }

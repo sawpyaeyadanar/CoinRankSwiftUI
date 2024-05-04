@@ -11,6 +11,7 @@ struct CoinDetailsView: View {
     @StateObject var viewModel : CoinDetailsViewModel
     @Binding var isPresented: Bool
     @State private var showStackoverflow:Bool = false
+    
     var body: some View {
         VStack {
             VStack(alignment: .leading) {
@@ -61,13 +62,13 @@ extension CoinDetailsView {
                 HStack {
                     Text("PRICE")
                         .font(.custom("Roboto-Bold", size: 12.0))
-                    Text(viewModel.coins?.price.asCurrencyWith6Decimals() ?? "")
+                    Text(viewModel.coins?.price.asCurrencyWith2Decimals() ?? "")
                         .font(.custom("Roboto-Regular", size: 12.0))
                 }
                 HStack {
                     Text("MARKET CAP")
                         .font(.custom("Roboto-Bold", size: 12.0))
-                    Text(viewModel.coins?.marketCap.asCurrencyWith6Decimals() ?? "")
+                    Text(viewModel.coins?.marketCap.formatNumberWithSuffix() ?? "")
                         .font(.custom("Roboto-Regular", size: 12.0))
                 }
             }
