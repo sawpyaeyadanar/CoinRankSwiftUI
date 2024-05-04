@@ -9,7 +9,7 @@ import Foundation
 
 class CoinDetailsViewModel: ObservableObject {
     
-    @Published var coins: CoinDetail?
+    @Published var coinDetail: CoinDetail?
     private let apiService: CoinDetailService
     private var cancellable = Set<AnyCancellable>()
     var isFetching: Bool = false
@@ -37,7 +37,7 @@ class CoinDetailsViewModel: ObservableObject {
           }
         } receiveValue: { [weak self] coins in
             guard let self = self else { return  }
-            self.coins = coins.data.coin
+            self.coinDetail = coins.data.coin
         }.store(in: &cancellable)
     }
 

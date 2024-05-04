@@ -17,7 +17,7 @@ enum URLManager {
         guard let urlString = URLManager.infoDictionary["Api Base Url"] as? String else {
             fatalError("Nothing found")
         }
-        guard let url = URL(string: "https://api.coinranking.com/v2") else {
+        guard let url = URL(string: urlString) else {
             fatalError("Base URL is invalid")
         }
         return url

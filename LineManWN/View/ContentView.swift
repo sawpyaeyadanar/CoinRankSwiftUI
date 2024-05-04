@@ -15,7 +15,7 @@ struct ContentView: View {
     @State private var rotationAngle: Angle = .degrees(0)
     var body: some View {
         ScrollViewReader { scrollViewProxy in
-           
+           shareButton
             Image(systemName: "arrow.clockwise.circle")
                        .resizable()
                        .scaledToFit()
@@ -66,6 +66,34 @@ struct ContentView: View {
             }
         }
     }
+    
+    private var shareButton: some View {
+        Text(labeledAttributedString)
+            .font(.system(size: 23))
+            .onTapGesture {
+                share()
+            }
+        
+    }
+    
+    private func share() {
+        guard let url = URL(string: "https://google.com") else { return }
+        let activityController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+        if let window = UIApplication.shared.windows.first {
+            window.rootViewController?.present(activityController, animated: true, completion: nil)
+        }
+    }
+
+    
+    private let labeledAttributedString: AttributedString = {
+        var label = AttributedString("You can earn $10 when you invite a friend to buy crypto.")
+        label.foregroundColor = .yellow
+        var invite = AttributedString("Invite your friend")
+        invite.font = .callout
+        invite.foregroundColor = .cyan
+        invite.font = .title.bold()
+        return label + invite
+    }()
     
     func fetchCoins() {
         guard !isLoading else {

@@ -166,10 +166,6 @@ struct CoinCellView: View {
             Spacer()
             rightView
         } //HStack
-        .onTapGesture {
-            isPresented.toggle()
-        }
-        
         .popover(isPresented: $isPresented, content: {
             CoinDetailsView(viewModel: CoinDetailsViewModel(coin: coin), isPresented: $isPresented)
         })
@@ -178,6 +174,9 @@ struct CoinCellView: View {
             .fill(Color.listTheme.background)
         )
         .shadow(color: Color.listTheme.shadow, radius: 2, x: 0, y: 2)
+        .onTapGesture {
+            isPresented.toggle()
+        }
         
     }
     
@@ -241,12 +240,32 @@ struct ReferView : View {
                 } //VStack
                 .padding(EdgeInsets(top: 21, leading: 16, bottom: 21, trailing: 0))
                 
-                Text("You can earn $10  when you invite a friend to buy crypto. Invite your friend")
-                    .font(.custom("Roboto-Regular", size: 16.0))
-                    .multilineTextAlignment(.leading)
+                Text(labeledAttributedString)
+                    .onTapGesture {
+                        share()
+                    }
+                    //.multilineTextAlignment(.leading)
                     .padding(.horizontal, 16)
             } //HStack
         } //ZStack
+    }
+    
+    private let labeledAttributedString: AttributedString = {
+        var label = AttributedString("You can earn $10 when you invite a friend to buy crypto.")
+        label.font = Font.custom("Roboto-Regular", size: 16)
+        
+        var invite = AttributedString("Invite your friend")
+        invite.font = Font.custom("Roboto-Bold", size: 16)
+        invite.foregroundColor = Color.dFont1
+        return label + invite
+    }()
+    
+    private func share() {
+        guard let url = URL(string: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fapps.apple.com%2Fth%2Fapp%2Fline-man-food-delivery-more%2Fid1076238296&psig=AOvVaw0d6RX29N1ZWF916BNq1IZ5&ust=1714925111897000&source=images&cd=vfe&opi=89978449&ved=0CAcQrpoMahcKEwi4prGpsPSFAxUAAAAAHQAAAAAQEQ") else { return }
+        let activityController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+        if let window = UIApplication.shared.windows.first {
+            window.rootViewController?.present(activityController, animated: true, completion: nil)
+        }
     }
 }
 
@@ -270,5 +289,6 @@ struct EmptySearchView: View {
 }
 
 #Preview {
-    HomeView(viewModel: HomeViewModel(coinListService: CoinListService()))
+    ReferView()
+    //HomeView(viewModel: HomeViewModel(coinListService: CoinListService()))
 }

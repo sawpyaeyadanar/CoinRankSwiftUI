@@ -14,25 +14,29 @@ struct CoinDetailsView: View {
     
     var body: some View {
         VStack {
-            VStack(alignment: .leading) {
-                header
-                description
-                Spacer()
-                Divider()
-            }
-            .padding(.horizontal, 24)
-
-            Button(action: { self.showStackoverflow.toggle() }) {
-                Text("GO TO WEBSITE")
-                    .font(.custom("Roboto-Bold", size: 14.0))
-                    .foregroundColor(Color.detailTheme.font1)
-                    .padding(.vertical, 16)
-            }
-            .fullScreenCover(isPresented: self.$showStackoverflow , content: {
-                SFSafariViewWrapper(url: URL(string: viewModel.coins!.websiteURL)!)
-                    .ignoresSafeArea()
-            })
+            if viewModel.coinDetail?.name == nil {
+                ProgressView()
+            } else  {
                 
+                VStack(alignment: .leading) {
+                    header
+                    description
+                    Spacer()
+                    Divider()
+                }
+                .padding(.horizontal, 24)
+                
+                Button(action: { self.showStackoverflow.toggle() }) {
+                    Text("GO TO WEBSITE")
+                        .font(.custom("Roboto-Bold", size: 14.0))
+                        .foregroundColor(Color.detailTheme.font1)
+                        .padding(.vertical, 16)
+                }
+                .fullScreenCover(isPresented: self.$showStackoverflow , content: {
+                    SFSafariViewWrapper(url: URL(string: viewModel.coinDetail!.websiteURL)!)
+                        .ignoresSafeArea()
+                })
+            }
         }
         .padding(.top, 32)
         
@@ -47,7 +51,7 @@ extension CoinDetailsView {
                 .frame(width: 50, height: 50)
             VStack(alignment: .leading, spacing: 6) {
                 HStack {
-                    Text(viewModel.coins?.name ?? "")
+                    Text(viewModel.coinDetail?.name ?? "")
                         .font(.custom("Roboto-Bold", size: 18.0))
                         .shadow(
                             color: Color.primary.opacity(0.25), /// shadow color
@@ -55,20 +59,20 @@ extension CoinDetailsView {
                             x: 0, /// x offset
                             y: 4 /// y offset
                         )
-                        .foregroundColor(Color(hex: viewModel.coins?.color ?? "#999999"))
-                    Text("(\(viewModel.coins?.symbol ?? ""))")
+                        .foregroundColor(Color(hex: viewModel.coinDetail?.color ?? "#999999"))
+                    Text("(\(viewModel.coinDetail?.symbol ?? ""))")
                         .font(.custom("Roboto-Regular", size: 16.0))
                 }
                 HStack {
                     Text("PRICE")
                         .font(.custom("Roboto-Bold", size: 12.0))
-                    Text(viewModel.coins?.price.asCurrencyWith2Decimals() ?? "")
+                    Text(viewModel.coinDetail?.price.asCurrencyWith2Decimals() ?? "")
                         .font(.custom("Roboto-Regular", size: 12.0))
                 }
                 HStack {
                     Text("MARKET CAP")
                         .font(.custom("Roboto-Bold", size: 12.0))
-                    Text(viewModel.coins?.marketCap.formatNumberWithSuffix() ?? "")
+                    Text(viewModel.coinDetail?.marketCap.formatNumberWithSuffix() ?? "")
                         .font(.custom("Roboto-Regular", size: 12.0))
                 }
             }
@@ -80,7 +84,7 @@ extension CoinDetailsView {
     
     private var description: some View {
         ScrollView {
-            Text("\(viewModel.coins?.coinDescription ?? "")")
+            Text("\(viewModel.coinDetail?.coinDescription ?? "")")
                 .multilineTextAlignment(.leading)
             .lineLimit(nil)
             .font(.custom("Roboto-Regular", size: 14.0))
