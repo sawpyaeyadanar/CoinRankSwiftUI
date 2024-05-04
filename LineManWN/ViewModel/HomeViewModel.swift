@@ -13,6 +13,10 @@ class HomeViewModel: ObservableObject {
     @Published var coins: [Coins] = []
     @Published var topCoins: [Coins] = []
     @Published var specialIndices = [Int]()
+    @Published var searchText: String = ""
+    @Published var searchCoin: [Coins] = []
+    @Published var isSearching: Bool = false
+    
     private let coinListService: CoinListService
     private var cancellable = Set<AnyCancellable>()
     var isFetching: Bool = false
@@ -37,10 +41,41 @@ class HomeViewModel: ObservableObject {
     }
     
     
+    
+    func getSearchList(text: String)  {
+        self.searchCoin = [Coins]()
+        self.isSearching = true
+        isFetching = true
+        coinListService.getOfflineSearchList(text: text)
+        //  coinListService.searchCoin(text: text)
+          .sink { completion in
+            self.isFetching =  false
+            switch completion {
+            case .finished:
+              print("search coin successfully")
+              
+            case .failure(let error):
+              print(" search coin unable to fetch \(error)")
+                self.errorMessage = error.localizedDescription
+            }
+          } receiveValue: { [weak self] coins in
+              guard let self = self, let coins = coins.data.coins else { return }
+              self.searchCoin = coins
+              self.specialIndices = calculateSpecialIndices(maxIndex: coins.count)
+          }.store(in: &cancellable)
+    }
+    
+    func finishSearch() {
+        self.isSearching = false
+    }
+  
+    
     func getCoinsList()  {
+        
       isFetching = true
-        //coinListService.getCoinsList()
-        coinListService.$coinResponse
+        //coinListService.getOfflineCoinsList()
+        //coinListService.$coinResponse
+        coinListService.getCoinsList()
         .sink { completion in
           self.isFetching =  false
           switch completion {
@@ -52,17 +87,17 @@ class HomeViewModel: ObservableObject {
               self.errorMessage = error.localizedDescription
           }
         } receiveValue: { [weak self] coins in
-            guard let self = self, let coins = coins?.data.coins else { return  }
+            guard let self = self, let coins = coins.data.coins else { return  }
             self.coins = coins
             self.specialIndices = calculateSpecialIndices(maxIndex: coins.count)
             self.getTopRank()
         }.store(in: &cancellable)
+        
     }
     
     private func getTopRank() {
         self.topCoins = [Coins]()
         self.topCoins =  Array(coins.sorted { $0.rank < $1.rank }.prefix(3))
-        // Remove top 3 ranks from coins array
         self.coins.removeAll { coin in
             self.topCoins.contains { $0.id == coin.id }
         }

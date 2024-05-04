@@ -39,6 +39,7 @@ struct ColorListTheme {
     let background = Color("Background")
     let shadow = Color("Shadow")
     let search = Color("Search")
+    let referBackground = Color("ReferBackground")
 }
 
 struct ColorDetailsTheme {

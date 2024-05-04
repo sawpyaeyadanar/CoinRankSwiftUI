@@ -12,7 +12,7 @@ enum APIEndPoint {
     // MARK: - Cases
     case list
     case details( uuid: String)
-    //case search
+    case search
 
 
     
@@ -27,8 +27,9 @@ enum APIEndPoint {
         case .list:
             return "/coins"
         case let .details( uuid):
-        //https://api.coinranking.com/v2/coin/:uuid
              return "/coins/\(uuid)/"
+        case .search:
+            return "/coins"
         }
     }
     
@@ -40,7 +41,7 @@ enum APIEndPoint {
     
      var httpMethod: HttpMethod {
         switch self {
-        case .list, .details(_):
+        case .list, .details(_), .search:
             return .get
         }
     }

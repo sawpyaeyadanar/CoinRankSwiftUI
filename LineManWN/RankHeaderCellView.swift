@@ -21,7 +21,7 @@ struct RankHeaderCellView: View {
                     .font(.custom("Roboto-Bold", size: 16.0))
                 Text(coin.name)
                     .foregroundColor(Color("LFont2"))
-                    .font(.custom("Roboto-Bold", size: 14.0))
+                    .font(.custom("Roboto-Regular", size: 14.0))
                 HStack(alignment: .center) {
                     Image(coin.changeStatus ? "arrow_green" : "arrow_red")
                         .resizable()

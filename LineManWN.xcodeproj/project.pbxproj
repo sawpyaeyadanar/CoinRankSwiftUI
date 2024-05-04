@@ -40,6 +40,7 @@
 		4920A1032BE2C419003743C3 /* CoinDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4920A1022BE2C419003743C3 /* CoinDetailsView.swift */; };
 		49639C5D2BE3A7A60051ADF3 /* RoundedCornersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49639C5C2BE3A7A60051ADF3 /* RoundedCornersView.swift */; };
 		49639C5F2BE3EE460051ADF3 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49639C5E2BE3EE460051ADF3 /* String.swift */; };
+		4963B3D42BE5EF5800D8C5D4 /* Search.json in Resources */ = {isa = PBXBuildFile; fileRef = 4963B3D32BE5EF5800D8C5D4 /* Search.json */; };
 		496870642BE3362A00B25167 /* RankHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496870632BE3362A00B25167 /* RankHeaderView.swift */; };
 		496870662BE337CD00B25167 /* RankHeaderCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496870652BE337CD00B25167 /* RankHeaderCellView.swift */; };
 		4968706A2BE33C0800B25167 /* CoinDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496870692BE33C0800B25167 /* CoinDetailModel.swift */; };
@@ -99,6 +100,7 @@
 		4920A1022BE2C419003743C3 /* CoinDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailsView.swift; sourceTree = "<group>"; };
 		49639C5C2BE3A7A60051ADF3 /* RoundedCornersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCornersView.swift; sourceTree = "<group>"; };
 		49639C5E2BE3EE460051ADF3 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		4963B3D32BE5EF5800D8C5D4 /* Search.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Search.json; sourceTree = "<group>"; };
 		496870632BE3362A00B25167 /* RankHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankHeaderView.swift; sourceTree = "<group>"; };
 		496870652BE337CD00B25167 /* RankHeaderCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankHeaderCellView.swift; sourceTree = "<group>"; };
 		496870692BE33C0800B25167 /* CoinDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailModel.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 				490F944B2BE34A0B004394B3 /* Info.plist */,
 				490F941B2BE34988004394B3 /* Font */,
 				490F94182BE34708004394B3 /* Extensions */,
+				4963B3D32BE5EF5800D8C5D4 /* Search.json */,
 				496870722BE33E9300B25167 /* CoinList.json */,
 				496870702BE33E8D00B25167 /* CoinDetail.json */,
 				4968706B2BE33DEF00B25167 /* Networking */,
@@ -387,6 +390,7 @@
 				490F943B2BE349DF004394B3 /* Roboto-Thin.ttf in Resources */,
 				490F94372BE349DF004394B3 /* Roboto-Bold.ttf in Resources */,
 				496870712BE33E8D00B25167 /* CoinDetail.json in Resources */,
+				4963B3D42BE5EF5800D8C5D4 /* Search.json in Resources */,
 				490F94462BE349DF004394B3 /* Roboto-Black.ttf in Resources */,
 				490F94382BE349DF004394B3 /* Roboto-Medium.ttf in Resources */,
 			);
