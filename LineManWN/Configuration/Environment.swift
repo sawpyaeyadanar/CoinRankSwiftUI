@@ -7,12 +7,24 @@
 
 import Foundation
 enum URLManager {
+    
+    private static let infoDictionary: [String: Any] = {
+        guard let dict = Bundle.main.infoDictionary else {  fatalError("Plist file not found") }
+        return dict
+    }()
+    
     static var apiBaseURL: URL {
-        URL(string: "https://api.coinranking.com/v2")!
+        guard let urlString = URLManager.infoDictionary["Api Base Url"] as? String else {
+            fatalError("Nothing found")
+        }
+        guard let url = URL(string: "https://api.coinranking.com/v2") else {
+            fatalError("Base URL is invalid")
+        }
+        return url
     }
     
     static var apiKey: String {
-        "coinrankingc4348cb2bf038bc49309d549c8103e3923d60d199adcfc6"
+        guard let hostName = URLManager.infoDictionary["Authority Host"] as? String else { fatalError("Not Found") }
+        return hostName
     }
-
 }

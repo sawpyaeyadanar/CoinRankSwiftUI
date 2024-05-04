@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var coins: [Coins] = []
+    @State private var coins: [Coin] = []
     @State private var isLoading = false
     @State private var shouldLoadMore = false
     @State private var rotationAngle: Angle = .degrees(0)
@@ -78,8 +78,8 @@ struct ContentView: View {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             // Mock data
             
-            let newCoins = [Coins(uuid: UUID().uuidString, symbol: "", name: "Bitcoin", color: "", iconUrl: "", price: "", change: "", rank: 0),
-                            Coins(uuid: UUID().uuidString, symbol: "", name: "Etharum", color: "", iconUrl: "", price: "", change: "", rank: 0)]
+            let newCoins = [Coin(uuid: UUID().uuidString, symbol: "", name: "Bitcoin", color: "", iconUrl: "", price: "", change: "", rank: 0),
+                            Coin(uuid: UUID().uuidString, symbol: "", name: "Etharum", color: "", iconUrl: "", price: "", change: "", rank: 0)]
             
            // self.coins.append(contentsOf: newCoins)
             

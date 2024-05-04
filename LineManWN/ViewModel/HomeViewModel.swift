@@ -10,11 +10,11 @@ import Combine
 
 class HomeViewModel: ObservableObject {
     
-    @Published var coins: [Coins] = []
-    @Published var topCoins: [Coins] = []
+    @Published var coins: [Coin] = []
+    @Published var topCoins: [Coin] = []
     @Published var specialIndices = [Int]()
     @Published var searchText: String = ""
-    @Published var searchCoin: [Coins] = []
+    @Published var searchCoin: [Coin] = []
     @Published var isSearching: Bool = false
     
     private let coinListService: CoinListService
@@ -23,8 +23,6 @@ class HomeViewModel: ObservableObject {
     var errorMessage: String?
     
     init(coinListService: CoinListService) {
-
-         
         self.coinListService = CoinListService()
         getCoinsList()
     }
@@ -40,10 +38,8 @@ class HomeViewModel: ObservableObject {
         return indices
     }
     
-    
-    
     func getSearchList(text: String)  {
-        self.searchCoin = [Coins]()
+        self.searchCoin = [Coin]()
         self.isSearching = true
         self.isFetching = true
         coinListService.getOfflineSearchList(text: text)
@@ -81,7 +77,6 @@ class HomeViewModel: ObservableObject {
           switch completion {
           case .finished:
             print("getCoinsList successfully")
-            
           case .failure(let error):
             print(" getCoinsList unable to fetch \(error)")
               self.errorMessage = error.localizedDescription
@@ -92,15 +87,13 @@ class HomeViewModel: ObservableObject {
             self.specialIndices = calculateSpecialIndices(maxIndex: coins.count)
             self.getTopRank()
         }.store(in: &cancellable)
-        
     }
     
     private func getTopRank() {
-        self.topCoins = [Coins]()
+        self.topCoins = [Coin]()
         self.topCoins =  Array(coins.sorted { $0.rank < $1.rank }.prefix(3))
         self.coins.removeAll { coin in
             self.topCoins.contains { $0.id == coin.id }
         }
-        
     }
 }

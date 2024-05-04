@@ -15,7 +15,7 @@ class CoinDetailService {
     let uuid: String = ""
     
     init() {
-        getCoinsDetails(uuid: uuid)
+        _ = getCoinsDetails(uuid: uuid)
     }
 
     
@@ -56,8 +56,5 @@ class CoinDetailService {
             print("error: ", error)
             fatalError("Unable to Load Coin Detail")
         }
-    }
-    
- 
-    
+    } 
 }

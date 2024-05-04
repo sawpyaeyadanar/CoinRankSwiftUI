@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RankHeaderCellView: View {
-    let coin: Coins
+    let coin: Coin
     @State private var isPresented: Bool = false
     var body: some View {
         ZStack {

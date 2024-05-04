@@ -15,7 +15,7 @@ class CoinListService {
     @Published var coinResponse: CoinsReponse? = nil
     
     init() {
-        getCoinsList()
+        _ = getCoinsList()
     }
     
     
@@ -75,19 +75,6 @@ class CoinListService {
               return  try JSONDecoder().decode(CoinsReponse.self, from: data)
             })
             .eraseToAnyPublisher()
-            
-            //.decode(type: CoinsReponse.self, decoder: JSONDecoder())
-            //.receive(on: DispatchQueue.main)
-            
-        
-
-//            .sink(receiveCompletion: NetworkingManager.handleCompletion,
-//                  receiveValue: { [weak self] (response) in
-//                self?.coinResponse = response
-//                debugPrint(response.data.coins?.count ,"+++++++++++++++Get++++++++++++++++++")
-//                self?.coinListCancellable?.cancel()
-//            })
-        
     }
     
     func getCoinsDetails() -> AnyPublisher<CoinDetaisResponse, APIError> {
@@ -99,10 +86,6 @@ class CoinListService {
             return Just(coinResult)
                 .setFailureType(to: APIError.self)
                 .eraseToAnyPublisher()
-//        } catch let error {
-//            debugPrint("error ", error.localizedDescription)
-//            fatalError("Unable to Load Coin Detail")
-//        }
         } catch let DecodingError.dataCorrupted(context) {
             print(context)
             fatalError("Unable to Load Coin Detail")
@@ -122,17 +105,5 @@ class CoinListService {
             print("error: ", error)
             fatalError("Unable to Load Coin Detail")
         }
-        
-        
-//        guard let url = Bundle.main.url(forResource: "CoinDetail", withExtension: "json"),
-//        let data = try? Data(contentsOf: url),
-//              let coinResult = try? JSONDecoder().decode(CoinDetaisResponse.self, from: data)
-//        else { fatalError("Unable to Load Coin Detail") }
-//        return Just(coinResult)
-//            .setFailureType(to: APIError.self)
-//            .eraseToAnyPublisher()
     }
-    
- 
-    
 }

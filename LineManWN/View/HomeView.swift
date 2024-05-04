@@ -84,7 +84,7 @@ struct HomeView: View {
     
     private var topRankView: some View {
         VStack(alignment: .leading, spacing: 0) {
-            topRankingView
+            topRankingTitleView
                 .padding(.vertical, 16)
             HStack(spacing: 8) {
                 ScrollView(.horizontal, showsIndicators: false) {
@@ -100,7 +100,7 @@ struct HomeView: View {
         .padding(.horizontal, 16)
     }
     
-    private var topRankingView: some View {
+    private var topRankingTitleView: some View {
         HStack {
             Text("Top")
                 .font(.custom("Roboto-Bold", size: 16))
@@ -121,8 +121,6 @@ struct HomeView: View {
             Text("Buy, sell and hold crypto")
                 .font(.custom("Roboto-Bold", size: 16.0))
                 .foregroundColor(Color(red:0, green: 0,blue: 0, opacity: 1.0))
-            //                .minimumScaleFactor(0.5)
-            //                .multilineTextAlignment(.leading)
                 .padding(.leading, 16)
                 .padding(.bottom, 12)
             
@@ -134,7 +132,7 @@ struct HomeView: View {
                                 if viewModel.specialIndices.contains(index) {
                                     ReferView()
                                 } else {
-                                    CardContentView(coin: coin)
+                                    CoinCellView(coin: coin)
                                 }
                             } //foreach
                         } else {
@@ -142,7 +140,7 @@ struct HomeView: View {
                                 if viewModel.specialIndices.contains(index) {
                                     ReferView()
                                 } else {
-                                    CardContentView(coin: coin)
+                                    CoinCellView(coin: coin)
                                 }
                             } //foreach
                         }
@@ -156,8 +154,8 @@ struct HomeView: View {
     }
 }
 
-struct CardContentView: View {
-    let coin: Coins
+struct CoinCellView: View {
+    let coin: Coin
     @State var isPresented = false
     var body: some View {
         HStack(spacing: 0) {

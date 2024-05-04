@@ -44,7 +44,6 @@
 		496870642BE3362A00B25167 /* RankHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496870632BE3362A00B25167 /* RankHeaderView.swift */; };
 		496870662BE337CD00B25167 /* RankHeaderCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496870652BE337CD00B25167 /* RankHeaderCellView.swift */; };
 		4968706A2BE33C0800B25167 /* CoinDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496870692BE33C0800B25167 /* CoinDetailModel.swift */; };
-		4968706D2BE33DF800B25167 /* APIPreviewClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968706C2BE33DF800B25167 /* APIPreviewClient.swift */; };
 		4968706F2BE33E5F00B25167 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968706E2BE33E5F00B25167 /* APIError.swift */; };
 		496870712BE33E8D00B25167 /* CoinDetail.json in Resources */ = {isa = PBXBuildFile; fileRef = 496870702BE33E8D00B25167 /* CoinDetail.json */; };
 		496870732BE33E9300B25167 /* CoinList.json in Resources */ = {isa = PBXBuildFile; fileRef = 496870722BE33E9300B25167 /* CoinList.json */; };
@@ -105,7 +104,6 @@
 		496870632BE3362A00B25167 /* RankHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankHeaderView.swift; sourceTree = "<group>"; };
 		496870652BE337CD00B25167 /* RankHeaderCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankHeaderCellView.swift; sourceTree = "<group>"; };
 		496870692BE33C0800B25167 /* CoinDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailModel.swift; sourceTree = "<group>"; };
-		4968706C2BE33DF800B25167 /* APIPreviewClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIPreviewClient.swift; sourceTree = "<group>"; };
 		4968706E2BE33E5F00B25167 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		496870702BE33E8D00B25167 /* CoinDetail.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CoinDetail.json; sourceTree = "<group>"; };
 		496870722BE33E9300B25167 /* CoinList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CoinList.json; sourceTree = "<group>"; };
@@ -216,7 +214,6 @@
 				4963B3D22BE5EC3600D8C5D4 /* View */,
 				4920A0F02BE2B632003743C3 /* Assets.xcassets */,
 				4920A0F22BE2B632003743C3 /* Preview Content */,
-				496870652BE337CD00B25167 /* RankHeaderCellView.swift */,
 				4963B3D12BE5EBE000D8C5D4 /* Model */,
 				4978BE212BE5501400A32683 /* Custom */,
 			);
@@ -253,6 +250,7 @@
 		4963B3D22BE5EC3600D8C5D4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				496870652BE337CD00B25167 /* RankHeaderCellView.swift */,
 				4920A0EE2BE2B631003743C3 /* ContentView.swift */,
 				4920A1022BE2C419003743C3 /* CoinDetailsView.swift */,
 				496870632BE3362A00B25167 /* RankHeaderView.swift */,
@@ -265,10 +263,7 @@
 		4968706B2BE33DEF00B25167 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				4978BE122BE5020400A32683 /* LocalFileManager.swift */,
-				4978BE0E2BE5010E00A32683 /* NetworkingManager.swift */,
 				4978BE182BE509A800A32683 /* CoinImageService.swift */,
-				4968706C2BE33DF800B25167 /* APIPreviewClient.swift */,
 				49AFE5DA2BE65E250000D08F /* Types */,
 				4978BE102BE501A200A32683 /* CoinListService.swift */,
 				49AFE5D72BE648090000D08F /* CoinDetailService.swift */,
@@ -279,6 +274,8 @@
 		4978BE0B2BE4F21E00A32683 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				4978BE0E2BE5010E00A32683 /* NetworkingManager.swift */,
+				4978BE122BE5020400A32683 /* LocalFileManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -435,7 +432,6 @@
 				490F941A2BE34714004394B3 /* Color.swift in Sources */,
 				4920A0ED2BE2B631003743C3 /* LineManWNApp.swift in Sources */,
 				4978BE202BE5500F00A32683 /* SFSafariViewWrapper.swift in Sources */,
-				4968706D2BE33DF800B25167 /* APIPreviewClient.swift in Sources */,
 				4920A1032BE2C419003743C3 /* CoinDetailsView.swift in Sources */,
 				496870642BE3362A00B25167 /* RankHeaderView.swift in Sources */,
 				49639C5D2BE3A7A60051ADF3 /* RoundedCornersView.swift in Sources */,
@@ -578,6 +574,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				BASE_URL = "https://api.coinranking.com/v2";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LineManWN/Preview Content\"";
@@ -607,6 +604,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				BASE_URL = "https://api.coinranking.com/v2";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LineManWN/Preview Content\"";

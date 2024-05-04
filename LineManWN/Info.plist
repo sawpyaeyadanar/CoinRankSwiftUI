@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Authority Host</key>
+	<string>coinrankingc4348cb2bf038bc49309d549c8103e3923d60d199adcfc6</string>
+	<key>Api Base Url</key>
+	<string>$(BASE_URL)</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Roboto-Bold.ttf</string>

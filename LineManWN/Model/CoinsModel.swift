@@ -12,27 +12,29 @@ struct CoinsReponse: Codable {
     let data: CoinsData
 }
 struct CoinsData : Codable {
-    let coins : [Coins]?
+    let coins : [Coin]?
 }
 
 
-struct Coins : Codable, Identifiable, Hashable {
+struct Coin : Codable, Identifiable, Hashable {
     let uuid : String
     let symbol : String
     let name : String
     let color : String?
     let iconUrl : String
-    //let marketCap : String?
     let price : String
-    //let listedAt : Int?
     let change : String
     let rank : Int
+    var id: String { uuid }
+    
+    //let marketCap : String?
+    //let listedAt : Int?
     //let sparkline : [String]?
     //let coinrankingUrl : String?
     //let twentyFourhVolume : String
     //let btcPrice : String?
     //let contractAddresses : [String]?
-    var id: String { uuid }
+    
     
     var changeStatus: Bool {
         guard let changeValue = Double(change) else { return false }
@@ -40,34 +42,33 @@ struct Coins : Codable, Identifiable, Hashable {
     }
     
     var positiveChange: String {
-            if let changeValue = Double(change) {
-                // Calculate the absolute value of the change
-                let absoluteChange = abs(changeValue)
-                // Format the absolute change value as a string
-                return String(format: "%.2f", absoluteChange)
-            } else {
-                return "0.00"
-            }
+        if let changeValue = Double(change) {
+            let absoluteChange = abs(changeValue)
+            return String(format: "%.2f", absoluteChange)
+        } else {
+            return "0.00"
         }
-
+    }
+    
     enum CodingKeys: String, CodingKey {
-
+        
         case uuid = "uuid"
         case symbol = "symbol"
         case name = "name"
         case color = "color"
         case iconUrl = "iconUrl"
-        //case marketCap = "marketCap"
         case price = "price"
-        //case listedAt = "listedAt"
         case change = "change"
         case rank = "rank"
+        
+        //case marketCap = "marketCap"
+        //case listedAt = "listedAt"
         //case sparkline = "sparkline"
         //case coinrankingUrl = "coinrankingUrl"
         //case twentyFourhVolume = "24hVolume"
         //case btcPrice = "btcPrice"
         //case contractAddresses = "contractAddresses"
     }
-
-   
+    
+    
 }

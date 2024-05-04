@@ -11,7 +11,6 @@ import SwiftUI
 struct LineManWNApp: App {
     var body: some Scene {
         WindowGroup {
-           // MainView(viewModel: MainViewModel())
             HomeView(viewModel: HomeViewModel(coinListService: CoinListService()))
         }
     }
