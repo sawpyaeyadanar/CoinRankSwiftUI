@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class MainViewModel: ObservableObject {
+class HomeViewModel: ObservableObject {
     
     @Published var coins: [Coins] = []
     @Published var topCoins: [Coins] = []
@@ -33,7 +33,6 @@ class MainViewModel: ObservableObject {
             indices.append(index - 1)
             index *= 2
         }
-        
         return indices
     }
     

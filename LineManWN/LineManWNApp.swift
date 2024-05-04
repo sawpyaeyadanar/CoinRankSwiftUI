@@ -12,7 +12,7 @@ struct LineManWNApp: App {
     var body: some Scene {
         WindowGroup {
            // MainView(viewModel: MainViewModel())
-            HomeView(viewModel: MainViewModel(coinListService: CoinListService()))
+            HomeView(viewModel: HomeViewModel(coinListService: CoinListService()))
         }
     }
 }

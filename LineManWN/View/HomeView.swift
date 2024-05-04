@@ -9,7 +9,7 @@ import SwiftUI
 
 
 struct HomeView: View {
-    @StateObject var viewModel : MainViewModel
+    @StateObject var viewModel : HomeViewModel
     @State private var search: String = ""
     @State private var showDetails: Bool = false
     
@@ -131,7 +131,7 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView(viewModel: MainViewModel(coinListService: CoinListService()))
+    HomeView(viewModel: HomeViewModel(coinListService: CoinListService()))
 }
 
 struct CardContentView: View {
