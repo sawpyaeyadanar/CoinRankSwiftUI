@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CoinImageView: View {
+struct CoinImageView1: View {
     
     @StateObject var viewModel: CoinImageViewModel
     
@@ -26,6 +26,20 @@ struct CoinImageView: View {
             } else {
                 Image(systemName: "questionmark")
             }
+        }
+    }
+}
+
+struct CoinImageView: View {
+    
+    
+    init(coin: Coin) {}
+    
+    var body: some View {
+        VStack {
+            Circle()
+                .fill(Color.blue)
+                .frame(width: 40, height: 40)
         }
     }
 }

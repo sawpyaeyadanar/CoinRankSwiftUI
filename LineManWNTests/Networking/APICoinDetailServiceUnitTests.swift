@@ -1,41 +1,23 @@
 //
-//  CoinDetailService.swift
-//  LineManWN
+//  APICoinDetailServiceUnitTests.swift
+//  LineManWNTests
 //
-//  Created by Saw Pyae Yadanar on 4/5/2567 BE.
+//  Created by Saw Pyae Yadanar on 7/17/2567 BE.
 //
 
 import Combine
 import Foundation
-import SwiftUI
+@testable import LineManWN
 
-class CoinDetailService: APICoinDetailsService {
-    private var coinListCancellable: AnyCancellable?
-    @Published var coinResponse: CoinDetaisResponse? = nil
-    let uuid: String = ""
-    
-    init() {
-        _ = getCoinsDetails(uuid: uuid)
-    }
-
-    
-    func getCoinsDetails(uuid: String) -> AnyPublisher<CoinDetaisResponse, any Error> {
-        return NetworkingManager.request(.details(uuid: uuid))
-              .tryMap({ data in
-                return  try JSONDecoder().decode(CoinDetaisResponse.self, from: data)
-              })
-              .eraseToAnyPublisher()
-    }
-    
-    func getCoinsOfflineDetails() -> AnyPublisher<CoinDetaisResponse, APIError> {
-        
+class APICoinDetailServiceUnitTests: APICoinDetailsService {
+    func getCoinsDetails(uuid: String) -> AnyPublisher<LineManWN.CoinDetaisResponse, any Error> {
         guard let url = Bundle.main.url(forResource: "CoinDetail", withExtension: "json") else {
             fatalError("Unable to Load Coin Detail")}
         do {
             let data = try Data(contentsOf: url)
             let coinResult = try JSONDecoder().decode(CoinDetaisResponse.self, from: data)
             return Just(coinResult)
-                .setFailureType(to: APIError.self)
+                .setFailureType(to: Error.self)
                 .eraseToAnyPublisher()
         } catch let DecodingError.dataCorrupted(context) {
             print(context)
@@ -56,5 +38,5 @@ class CoinDetailService: APICoinDetailsService {
             print("error: ", error)
             fatalError("Unable to Load Coin Detail")
         }
-    } 
+    }
 }

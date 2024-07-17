@@ -10,13 +10,13 @@ import Foundation
 class CoinDetailsViewModel: ObservableObject {
     
     @Published var coinDetail: CoinDetail?
-    private let apiService: CoinDetailService
+    private let apiService: APICoinDetailsService
     private var cancellable = Set<AnyCancellable>()
     var isFetching: Bool = false
     var errorMessage: String?
     var coin: Coin
     
-    init(coin: Coin, service: CoinDetailService = CoinDetailService()) {
+    init(coin: Coin, service: APICoinDetailsService = CoinDetailService()) {
         self.coin = coin
         self.apiService = CoinDetailService()
         getCoinsDetails()

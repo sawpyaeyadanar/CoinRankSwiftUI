@@ -9,7 +9,7 @@ import Combine
 import Foundation
 import SwiftUI
 
-class CoinListService {
+class CoinListService: APICoinListService {
     @Published var image: UIImage? = nil
     private var coinListCancellable: AnyCancellable?
     @Published var coinResponse: CoinsReponse? = nil
@@ -52,58 +52,28 @@ class CoinListService {
     
     func searchCoin(text: String) -> AnyPublisher<CoinsReponse, any Error> {
         return NetworkingManager.request(.search, parameters: ["search": text])
-              .tryMap({ data in
-                  try JSONDecoder().decode(CoinsReponse.self, from: data)
-              })
-              .eraseToAnyPublisher()
+            .tryMap({ data in
+                try JSONDecoder().decode(CoinsReponse.self, from: data)
+            })
+            .eraseToAnyPublisher()
     }
     
-   
+    
     func getOfflineCoinsList() -> AnyPublisher<CoinsReponse, APIError> {
         guard let url = Bundle.main.url(forResource: "CoinList", withExtension: "json"),
-        let data = try? Data(contentsOf: url),
+              let data = try? Data(contentsOf: url),
               let coinResult = try? JSONDecoder().decode(CoinsReponse.self, from: data)
         else { fatalError("Unable to Load Coin List") }
         return Just(coinResult)
             .setFailureType(to: APIError.self)
             .eraseToAnyPublisher()
-    } 
-    
-    func getCoinsList() -> AnyPublisher<CoinsReponse, any Error> {
-      return NetworkingManager.request(.list)
-            .tryMap({ data in
-              return  try JSONDecoder().decode(CoinsReponse.self, from: data)
-            })
-            .eraseToAnyPublisher()
     }
     
-    func getCoinsDetails() -> AnyPublisher<CoinDetaisResponse, APIError> {
-        guard let url = Bundle.main.url(forResource: "CoinDetail", withExtension: "json") else {
-            fatalError("Unable to Load Coin Detail")}
-        do {
-            let data = try Data(contentsOf: url)
-            let coinResult = try JSONDecoder().decode(CoinDetaisResponse.self, from: data)
-            return Just(coinResult)
-                .setFailureType(to: APIError.self)
-                .eraseToAnyPublisher()
-        } catch let DecodingError.dataCorrupted(context) {
-            print(context)
-            fatalError("Unable to Load Coin Detail")
-        } catch let DecodingError.keyNotFound(key, context) {
-            print("Key '\(key)' not found:", context.debugDescription)
-            print("codingPath:", context.codingPath)
-            fatalError("Unable to Load Coin Detail")
-        } catch let DecodingError.valueNotFound(value, context) {
-            print("Value '\(value)' not found:", context.debugDescription)
-            print("codingPath:", context.codingPath)
-            fatalError("Unable to Load Coin Detail")
-        } catch let DecodingError.typeMismatch(type, context)  {
-            print("Type '\(type)' mismatch:", context.debugDescription)
-            print("codingPath:", context.codingPath)
-            fatalError("Unable to Load Coin Detail")
-        } catch {
-            print("error: ", error)
-            fatalError("Unable to Load Coin Detail")
-        }
+    func getCoinsList() -> AnyPublisher<CoinsReponse, any Error> {
+        return NetworkingManager.request(.list)
+            .tryMap({ data in
+                return  try JSONDecoder().decode(CoinsReponse.self, from: data)
+            })
+            .eraseToAnyPublisher()
     }
 }

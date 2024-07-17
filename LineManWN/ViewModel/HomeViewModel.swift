@@ -17,13 +17,13 @@ class HomeViewModel: ObservableObject {
     @Published var searchCoin: [Coin] = []
     @Published var isSearching: Bool = false
     
-    private let coinListService: CoinListService
+    private let coinListService: APICoinListService
     private var cancellable = Set<AnyCancellable>()
     var isFetching: Bool = false
     var errorMessage: String?
     
-    init(coinListService: CoinListService) {
-        self.coinListService = CoinListService()
+    init(coinListService: APICoinListService) {
+        self.coinListService = coinListService
         getCoinsList()
     }
     
@@ -42,8 +42,8 @@ class HomeViewModel: ObservableObject {
         self.searchCoin = [Coin]()
         self.isSearching = true
         self.isFetching = true
-        coinListService.getOfflineSearchList(text: text)
-        //  coinListService.searchCoin(text: text)
+       // coinListService.getOfflineSearchList(text: text)
+          coinListService.searchCoin(text: text)
           .sink { completion in
             self.isFetching =  false
             switch completion {

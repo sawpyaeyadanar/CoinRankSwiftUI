@@ -12,7 +12,9 @@ struct HomeView: View {
     @StateObject var viewModel : HomeViewModel
     @State private var search: String = ""
     @State private var showDetails: Bool = false
-    private let debounceTime = 1
+    private let debounceTime: TimeInterval = 0.3
+    @State private var searchCancellable: AnyCancellable?
+    
     var body: some View {
         GeometryReader { geo in
             VStack {
@@ -66,20 +68,24 @@ struct HomeView: View {
                 .padding(12)
             
             TextField("Search", text: $search)
-                .onReceive(Just(search) .throttle(for: .seconds(debounceTime), scheduler: DispatchQueue.main, latest: true), perform: { newValue in
-                    if newValue.isEmpty {
-                        viewModel.finishSearch()
-                    }
-                    if newValue.count > 2 {
-                        print("get new value \(newValue)")
-                        self.viewModel.getSearchList(text: newValue)
-                    }
-                })
         } //Hstack
         .background(RoundedCorners(topLeft: 8.0, topRight: 8.0, bottomLeft: 8.0,
                                    bottomRight: 8.0)
             .fill(Color.listTheme.search))
         .padding(16)
+        .onChange(of: search) { newValue in
+            searchCancellable?.cancel()
+            searchCancellable = Just(newValue)
+                .throttle(for: .seconds(debounceTime), scheduler: DispatchQueue.main, latest: true)
+                .sink { value in
+                    if value.isEmpty {
+                        viewModel.finishSearch()
+                    } else if value.count > 2 {
+                        print("get new value \(value)")
+                        viewModel.getSearchList(text: value)
+                    }
+                }
+        }
     }
     
     private var topRankView: some View {
@@ -197,7 +203,7 @@ struct CoinCellView: View {
     
     private var rightView: some View {
         VStack(alignment: .trailing) {
-            Text(coin.price.asCurrencyWith5Decimals())
+            Text(coin.price?.asCurrencyWith5Decimals() ?? "")
                 .foregroundColor(Color("LFont1"))
                 .font(.custom("Roboto-Bold", size: 12.0))
             HStack(alignment: .center) {

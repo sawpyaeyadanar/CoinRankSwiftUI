@@ -62,7 +62,21 @@
 		49AFE5D82BE648090000D08F /* CoinDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AFE5D72BE648090000D08F /* CoinDetailService.swift */; };
 		49AFE5DC2BE698BF0000D08F /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AFE5DB2BE698BF0000D08F /* PreviewData.swift */; };
 		49AFE5DE2BE69D230000D08F /* LineManSimulator.mov in Resources */ = {isa = PBXBuildFile; fileRef = 49AFE5DD2BE69D230000D08F /* LineManSimulator.mov */; };
+		49E48D982C4825E700F26B23 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E48D972C4825E700F26B23 /* APIService.swift */; };
+		49E48DA02C48288900F26B23 /* LineManWNTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E48D9F2C48288900F26B23 /* LineManWNTests.swift */; };
+		49E48DAA2C48297000F26B23 /* APIGetCoinServiceUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E48DA92C48297000F26B23 /* APIGetCoinServiceUnitTests.swift */; };
+		49E48DAC2C48306D00F26B23 /* APICoinDetailServiceUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E48DAB2C48306D00F26B23 /* APICoinDetailServiceUnitTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		49E48DA12C48288900F26B23 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4920A0E12BE2B631003743C3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4920A0E82BE2B631003743C3;
+			remoteInfo = LineManWN;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		490F94192BE34714004394B3 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -120,6 +134,11 @@
 		49AFE5D72BE648090000D08F /* CoinDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailService.swift; sourceTree = "<group>"; };
 		49AFE5DB2BE698BF0000D08F /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
 		49AFE5DD2BE69D230000D08F /* LineManSimulator.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = LineManSimulator.mov; sourceTree = "<group>"; };
+		49E48D972C4825E700F26B23 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		49E48D9D2C48288900F26B23 /* LineManWNTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LineManWNTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		49E48D9F2C48288900F26B23 /* LineManWNTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineManWNTests.swift; sourceTree = "<group>"; };
+		49E48DA92C48297000F26B23 /* APIGetCoinServiceUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIGetCoinServiceUnitTests.swift; sourceTree = "<group>"; };
+		49E48DAB2C48306D00F26B23 /* APICoinDetailServiceUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICoinDetailServiceUnitTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +148,13 @@
 			files = (
 				4978BE1E2BE5101700A32683 /* SVGKitSwift in Frameworks */,
 				4978BE1C2BE5101700A32683 /* SVGKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49E48D9A2C48288900F26B23 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				4920A0EB2BE2B631003743C3 /* LineManWN */,
+				49E48D9E2C48288900F26B23 /* LineManWNTests */,
 				4920A0EA2BE2B631003743C3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -195,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				4920A0E92BE2B631003743C3 /* LineManWN.app */,
+				49E48D9D2C48288900F26B23 /* LineManWNTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -202,6 +230,7 @@
 		4920A0EB2BE2B631003743C3 /* LineManWN */ = {
 			isa = PBXGroup;
 			children = (
+				49E48D962C4825BF00F26B23 /* Protocol */,
 				49AFE5DD2BE69D230000D08F /* LineManSimulator.mov */,
 				4978BE242BE5599F00A32683 /* Configuration */,
 				4978BE0B2BE4F21E00A32683 /* Utilities */,
@@ -316,6 +345,32 @@
 			path = Types;
 			sourceTree = "<group>";
 		};
+		49E48D962C4825BF00F26B23 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				49E48D972C4825E700F26B23 /* APIService.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		49E48D9E2C48288900F26B23 /* LineManWNTests */ = {
+			isa = PBXGroup;
+			children = (
+				49E48DA62C48291C00F26B23 /* Networking */,
+				49E48D9F2C48288900F26B23 /* LineManWNTests.swift */,
+			);
+			path = LineManWNTests;
+			sourceTree = "<group>";
+		};
+		49E48DA62C48291C00F26B23 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				49E48DA92C48297000F26B23 /* APIGetCoinServiceUnitTests.swift */,
+				49E48DAB2C48306D00F26B23 /* APICoinDetailServiceUnitTests.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -340,6 +395,24 @@
 			productReference = 4920A0E92BE2B631003743C3 /* LineManWN.app */;
 			productType = "com.apple.product-type.application";
 		};
+		49E48D9C2C48288900F26B23 /* LineManWNTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49E48DA32C48288900F26B23 /* Build configuration list for PBXNativeTarget "LineManWNTests" */;
+			buildPhases = (
+				49E48D992C48288900F26B23 /* Sources */,
+				49E48D9A2C48288900F26B23 /* Frameworks */,
+				49E48D9B2C48288900F26B23 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				49E48DA22C48288900F26B23 /* PBXTargetDependency */,
+			);
+			name = LineManWNTests;
+			productName = LineManWNTests;
+			productReference = 49E48D9D2C48288900F26B23 /* LineManWNTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -347,11 +420,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1530;
+				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					4920A0E82BE2B631003743C3 = {
 						CreatedOnToolsVersion = 15.3;
+					};
+					49E48D9C2C48288900F26B23 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 4920A0E82BE2B631003743C3;
 					};
 				};
 			};
@@ -372,6 +449,7 @@
 			projectRoot = "";
 			targets = (
 				4920A0E82BE2B631003743C3 /* LineManWN */,
+				49E48D9C2C48288900F26B23 /* LineManWNTests */,
 			);
 		};
 /* End PBXProject section */
@@ -413,6 +491,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		49E48D9B2C48288900F26B23 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -421,6 +506,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				49AFE5DC2BE698BF0000D08F /* PreviewData.swift in Sources */,
+				49E48D982C4825E700F26B23 /* APIService.swift in Sources */,
 				4978BDFF2BE4C44F00A32683 /* CoinDetailsViewModel.swift in Sources */,
 				4920A0FD2BE2BED9003743C3 /* CoinsModel.swift in Sources */,
 				4978BE282BE55AD500A32683 /* HttpMethod.swift in Sources */,
@@ -447,7 +533,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		49E48D992C48288900F26B23 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49E48DAC2C48306D00F26B23 /* APICoinDetailServiceUnitTests.swift in Sources */,
+				49E48DAA2C48297000F26B23 /* APIGetCoinServiceUnitTests.swift in Sources */,
+				49E48DA02C48288900F26B23 /* LineManWNTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		49E48DA22C48288900F26B23 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4920A0E82BE2B631003743C3 /* LineManWN */;
+			targetProxy = 49E48DA12C48288900F26B23 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		4920A0F52BE2B632003743C3 /* Debug */ = {
@@ -631,6 +735,42 @@
 			};
 			name = Release;
 		};
+		49E48DA42C48288900F26B23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.saw.LineManWNTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LineManWN.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LineManWN";
+			};
+			name = Debug;
+		};
+		49E48DA52C48288900F26B23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.saw.LineManWNTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LineManWN.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LineManWN";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -648,6 +788,15 @@
 			buildConfigurations = (
 				4920A0F82BE2B632003743C3 /* Debug */,
 				4920A0F92BE2B632003743C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		49E48DA32C48288900F26B23 /* Build configuration list for PBXNativeTarget "LineManWNTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49E48DA42C48288900F26B23 /* Debug */,
+				49E48DA52C48288900F26B23 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

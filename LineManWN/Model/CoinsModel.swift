@@ -22,8 +22,8 @@ struct Coin : Codable, Identifiable, Hashable {
     let name : String
     let color : String?
     let iconUrl : String
-    let price : String
-    let change : String
+    let price : String?
+    let change : String?
     let rank : Int
     var id: String { uuid }
     
@@ -37,17 +37,14 @@ struct Coin : Codable, Identifiable, Hashable {
     
     
     var changeStatus: Bool {
-        guard let changeValue = Double(change) else { return false }
+        guard let change = change, let changeValue = Double(change) else { return false}
         return changeValue > 0
     }
     
     var positiveChange: String {
-        if let changeValue = Double(change) {
-            let absoluteChange = abs(changeValue)
-            return String(format: "%.2f", absoluteChange)
-        } else {
-            return "0.00"
-        }
+        guard let change = change, let changeValue = Double(change) else { return "0.00" }
+        let absoluteChange = abs(changeValue)
+        return String(format: "%.2f", absoluteChange)
     }
     
     enum CodingKeys: String, CodingKey {
