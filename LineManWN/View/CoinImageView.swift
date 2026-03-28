@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CoinImageView1: View {
+struct CoinImageView: View {
     
     @StateObject var viewModel: CoinImageViewModel
     
@@ -30,7 +30,7 @@ struct CoinImageView1: View {
     }
 }
 
-struct CoinImageView: View {
+struct CoinImageView1: View {
     
     
     init(coin: Coin) {}

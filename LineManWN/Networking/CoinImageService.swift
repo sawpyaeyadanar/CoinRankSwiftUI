@@ -35,14 +35,19 @@ class CoinImageService {
     }
     
     private func downloadCoinImage() {
+        debugPrint("Image download Link ", coin.iconUrl)
         guard let url = URL(string: coin.iconUrl) else { return }
         
         imageSubscription = NetworkingManager.download(url: url)
-            .tryMap({ data in
-                let svg = SVGKImage(data: data)
-                return svg?.uiImage
+            .tryMap({ (data) in
+                return UIImage(data: data)
+//                if url.absoluteString.contains(".svg") {
+//                    let svg = SVGKImage(data: data)
+//                    return svg?.uiImage
+//                } else {
+//                    return UIImage(data: data)
+//                }
             })
-            .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: NetworkingManager.handleCompletion, receiveValue: { [weak self] (returnedImage) in
                 guard let self = self, let downloadedImage = returnedImage else { return }
                 self.image = downloadedImage

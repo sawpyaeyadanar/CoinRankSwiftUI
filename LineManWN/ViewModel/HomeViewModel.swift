@@ -68,25 +68,26 @@ class HomeViewModel: ObservableObject {
     
     func getCoinsList()  {
         
-      isFetching = true
-        //coinListService.getOfflineCoinsList()
+        isFetching = true
+        coinListService.getOfflineCoinsList()
         //coinListService.$coinResponse
-        coinListService.getCoinsList()
-        .sink { completion in
-          self.isFetching =  false
-          switch completion {
-          case .finished:
-            print("getCoinsList successfully")
-          case .failure(let error):
-            print(" getCoinsList unable to fetch \(error)")
-              self.errorMessage = error.localizedDescription
-          }
-        } receiveValue: { [weak self] coins in
-            guard let self = self, let coins = coins.data.coins else { return  }
-            self.coins = coins
-            self.specialIndices = calculateSpecialIndices(maxIndex: coins.count)
-            self.getTopRank()
-        }.store(in: &cancellable)
+        //coinListService.getCoinsList()
+            .sink { completion in
+                self.isFetching =  false
+                switch completion {
+                case .finished:
+                    debugPrint("getCoinsList successfully")
+                case .failure(let error):
+                    debugPrint(" getCoinsList unable to fetch \(error)")
+                    self.errorMessage = error.localizedDescription
+                }
+            } receiveValue: { [weak self] coins in
+                guard let self = self, let coins = coins.data.coins else { return  }
+                self.isFetching =  false
+                self.coins = coins
+                self.specialIndices = calculateSpecialIndices(maxIndex: coins.count)
+                self.getTopRank()
+            }.store(in: &cancellable)
     }
     
     private func getTopRank() {

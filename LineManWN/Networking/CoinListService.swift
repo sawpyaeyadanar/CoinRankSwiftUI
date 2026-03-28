@@ -59,13 +59,13 @@ class CoinListService: APICoinListService {
     }
     
     
-    func getOfflineCoinsList() -> AnyPublisher<CoinsReponse, APIError> {
+    func getOfflineCoinsList() -> AnyPublisher<CoinsReponse, any Error> {
         guard let url = Bundle.main.url(forResource: "CoinList", withExtension: "json"),
               let data = try? Data(contentsOf: url),
               let coinResult = try? JSONDecoder().decode(CoinsReponse.self, from: data)
         else { fatalError("Unable to Load Coin List") }
         return Just(coinResult)
-            .setFailureType(to: APIError.self)
+            .setFailureType(to: Error.self)
             .eraseToAnyPublisher()
     }
     

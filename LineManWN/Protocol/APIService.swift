@@ -12,6 +12,7 @@ protocol APICoinListService {
     func getCoinsList() -> AnyPublisher<CoinsReponse, any Error>
     func searchCoin(text: String) -> AnyPublisher<CoinsReponse, any Error>
     func getOfflineSearchList(text: String) -> AnyPublisher<CoinsReponse, APIError>
+    func getOfflineCoinsList() -> AnyPublisher<CoinsReponse, any Error>
 }
 
 protocol APICoinDetailsService {

@@ -66,6 +66,7 @@
 		49E48DA02C48288900F26B23 /* LineManWNTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E48D9F2C48288900F26B23 /* LineManWNTests.swift */; };
 		49E48DAA2C48297000F26B23 /* APIGetCoinServiceUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E48DA92C48297000F26B23 /* APIGetCoinServiceUnitTests.swift */; };
 		49E48DAC2C48306D00F26B23 /* APICoinDetailServiceUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E48DAB2C48306D00F26B23 /* APICoinDetailServiceUnitTests.swift */; };
+		49EBAE372C4F78DA00CDC454 /* CustomModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EBAE362C4F78DA00CDC454 /* CustomModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,6 +140,7 @@
 		49E48D9F2C48288900F26B23 /* LineManWNTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineManWNTests.swift; sourceTree = "<group>"; };
 		49E48DA92C48297000F26B23 /* APIGetCoinServiceUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIGetCoinServiceUnitTests.swift; sourceTree = "<group>"; };
 		49E48DAB2C48306D00F26B23 /* APICoinDetailServiceUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICoinDetailServiceUnitTests.swift; sourceTree = "<group>"; };
+		49EBAE362C4F78DA00CDC454 /* CustomModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +232,7 @@
 		4920A0EB2BE2B631003743C3 /* LineManWN */ = {
 			isa = PBXGroup;
 			children = (
+				49EBAE352C4F6D7300CDC454 /* Modifiers */,
 				49E48D962C4825BF00F26B23 /* Protocol */,
 				49AFE5DD2BE69D230000D08F /* LineManSimulator.mov */,
 				4978BE242BE5599F00A32683 /* Configuration */,
@@ -369,6 +372,14 @@
 				49E48DAB2C48306D00F26B23 /* APICoinDetailServiceUnitTests.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		49EBAE352C4F6D7300CDC454 /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				49EBAE362C4F78DA00CDC454 /* CustomModifier.swift */,
+			);
+			path = Modifiers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -516,6 +527,7 @@
 				4978BE112BE501A200A32683 /* CoinListService.swift in Sources */,
 				4978BE132BE5020400A32683 /* LocalFileManager.swift in Sources */,
 				496870662BE337CD00B25167 /* RankHeaderCellView.swift in Sources */,
+				49EBAE372C4F78DA00CDC454 /* CustomModifier.swift in Sources */,
 				490F941A2BE34714004394B3 /* Color.swift in Sources */,
 				4920A0ED2BE2B631003743C3 /* LineManWNApp.swift in Sources */,
 				4978BE202BE5500F00A32683 /* SFSafariViewWrapper.swift in Sources */,

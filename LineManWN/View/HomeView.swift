@@ -109,9 +109,7 @@ struct HomeView: View {
     private var topRankingTitleView: some View {
         HStack {
             Text("Top")
-                .font(.custom("Roboto-Bold", size: 16))
-                .foregroundColor(Color.lFont1)
-            
+                .modifier(LFont1WithSize16())
             Text("3")
                 .font(.custom("Roboto-Bold", size: 18))
                 .foregroundColor(Color.lFont5)
@@ -190,8 +188,7 @@ struct CoinCellView: View {
         VStack(alignment: .leading) {
             Text(coin.name)
                 .lineLimit(1)
-                .foregroundColor(Color("LFont1"))
-                .font(.custom("Roboto-Bold", size: 16.0))
+                .modifier(LFont1WithSize16())
                 .padding(.top, 21)
                 .padding(.bottom, 6)
             Text(coin.symbol.uppercased())
